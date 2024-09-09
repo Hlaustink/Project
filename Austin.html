@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPECTERROSS</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .hero {
+            padding: 40px 0;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .stats div {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .service-item, .step-item, .doctor-item, .testimonial-item {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        footer {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+        .open-modal-btn{
+            padding:10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border:none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal{
+            display: none; /*Hide modal by default*/
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content{
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+            text-align: left; /*Align text to the left*/
+        }
+
+        /*Close button Style*/
+        .close-btn{
+            padding: 10px 15px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /*Hover effect for the close button*/
+        .close-btn:hover{
+            background-color: darkred;
+        }
+
+/* General styling for managing partner containers */
+.vision-mission-container {
+    display: inline-block;
+    width: 525px; /* Adjust the size if needed */
+    height: auto;
+    padding: 10px;
+    border: 0.5px solid #ccc;
+    border-radius: 8px;
+    margin: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.vision-mission-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    color: rgb(12, 4, 4);
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.vision-text, .mission-text {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Hidden class to hide text */
+.hidden {
+    display: none;
+}
+    </style>
+</head>
+<body>
+
+<header class="bg-white border-bottom">
+    <div class="container text-left py-4">
+        <img src="D:\Sandra\Desktop\Project\logo.jpeg" style="float: right" width="13%" length="30%" class="img-fluid mb-4">
+        <h1>SpecterRoss</h1>
+        <p>Top Law Firm in Africa</p>
+        <button class="open-modal-btn"onclick="opensearchModal()">Search Advocate</button>
+        <!-- Advocate Login Button -->
+<button class="open-modal-btn" onclick="openLoginModal()">Advocate Login</button>
+    </div>
+    <div id="searchModal"class="modal">
+        <div class="modal-content">
+            <h2>Search Advocate</h2>
+            <!--Search box-->
+            <input type="text" placeholder="Search for an advocate">
+            <button type="button">Search
+                <span class="search-icon">🔍</span>
+                </button>
+
+            <!--Status Definitions-->
+            <div class="status-definitions">
+                Practising status definition:
+                <a href="#">Active /</a>
+                <a href="#">Inactive /</a>
+                <a href="#">Struck Off /</a>
+                <a href="#">Susupended /</a>
+                <a href="#">Unknown /</a>
+                <a href="#">Deceased /</a>
+            </div>
+
+            <!-- Advanced Search Button -->
+<a href="D:/Sandra/Desktop/Project/advanced-search.html">
+    <button class="advanced-search-btn">
+        Advanced Search <span class="search-icon">🔍</span>
+    </button>
+</a>
+            <!--Button to close the modal-->
+            <button class="close-btn"onclick="closesearchModal()">Close</button>
+            </div>
+        </div>
+
+<!-- Advocate Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <h2>Advocate Login</h2>
+        <form>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+        <button class="close-btn" onclick="closeLoginModal()">Close</button>
+    </div>
+</div>
+</header>
+
+<div class="container hero text-center">
+    <div class="row stats gx-4">
+        <div class="col-md-3"><strong>99%</strong> Satisfaction</div>
+        <div class="col-md-3"><strong>15,000+</strong> Advocates</div>
+        <div class="col-md-3"><strong>10,000+</strong> Clients</div>
+        <div class="col-md-3"><strong>100+</strong> Services</div>
+    </div>
+</div>
+
+<div class="container services my-5">
+    <h2 class="text-center mb-4">Top services</h2>
+    <div class="row">
+        <div class="col-md-3 service-item">Civil Law</div>
+        <div class="col-md-3 service-item">Criminal Law</div>
+        <div class="col-md-3 service-item">Administrative Law</div>
+        <div class="col-md-3 service-item">Statutory Law</div>
+    </div>
+</div>
+
+<div class="container steps my-5">
+    <h2 class="text-center mb-4">Easy Steps And Get Your Solution</h2>
+    <div class="row">
+        <div class="col-md-3 step-item">Search Advocate</div>
+        <div class="col-md-3 step-item">Login</div>
+        <div class="col-md-3 step-item">Contact</div>
+        <div class="col-md-3 step-item">Membership</div>
+    </div>
+</div>
+
+<div class="container doctors my-5">
+    <h2 class="text-center mb-4">Our Managing Partners</h2>
+    <div class="row">
+        <div class="col-md-4 doctor-item">Harvey Specter</div>
+        <div class="col-md-4 doctor-item">Mike Ross</div>
+        <div class="col-md-4 doctor-item">Louis Litt</div>
+    </div>
+</div>
+
+<!-- About Us Section -->
+<div class="container about-us text-center my-5">
+    <h2>About Us</h2>
+
+    <!-- Vision and Mission Buttons in Containers -->
+    <div class="about-container">
+        <div class="vision-mission-container">
+            <button onclick="toggleVisionText()">Vision</button>
+            <div id="visionText" class="vision-text hidden">
+                <p>Our vision is to promote quality and robust legal practice and uphold the rule of law for a better society.</p>
+            </div>
+        </div>
+
+        <div class="vision-mission-container">
+            <button onclick="toggleMissionText()">Mission</button>
+            <div id="missionText" class="mission-text hidden">
+                <p>Our mission is to provide a society that promotes quality and robust legal practice and the rule of law.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container cta text-center my-5">
+    <p>Want to Advocate Easily?</p>
+    <button class="btn btn-success">Submit Here</button>
+</div>
+
+<footer class="bg-white border-top">
+    <div class="container py-4">
+        <p>&copy; 2024 SpectorRoss - All Rights Reserved</p>
+        <p>Follow us on social media</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+<!--Javascript to toggle visibility-->
+<script>
+// Function to open the search modal
+function opensearchModal() {
+    document.getElementById('searchModal').style.display = 'flex'; // Show the modal
+}
+
+// Function to close the seach modal
+function closesearchModal() {
+    document.getElementById('searchModal').style.display = 'none'; // Hide the modal
+}
+
+</script>
+<script>
+    // Function to open the login modal
+    function openLoginModal() {
+        document.getElementById('loginModal').style.display = 'flex'; // Show the login modal
+    }
+    
+    // Function to close the login modal
+    function closeLoginModal() {
+        document.getElementById('loginModal').style.display = 'none'; // Hide the login modal
+    }
+    // Close the modal if the user clicks outside the modal content
+window.onclick = function(event) {
+    const searchModal=document.getElementById('searchModal');
+    const loginModal=document.getElementById('loginModal');
+
+    //Close search modal if clicked outside of it
+    if(event.target==searchModal){
+        closesearchModal();
+    }
+    //Close login modal if clicked outside of it
+    if(event.target==loginModal){
+        closeLoginModal();
+    }
+}
+    </script>
+
+    <!-- JavaScript to toggle the text -->
+<script>
+    function toggleVisionText() {
+        const visionText = document.getElementById('visionText');
+        
+        // Toggle the hidden class to show or hide the vision text
+        if (visionText.classList.contains('hidden')) {
+            visionText.classList.remove('hidden');  // Show text
+        } else {
+            visionText.classList.add('hidden');  // Hide text
+        }
+    }
+
+    function toggleMissionText() {
+        const missionText = document.getElementById('missionText');
+        
+        // Toggle the hidden class to show or hide the mission text
+        if (missionText.classList.contains('hidden')) {
+            missionText.classList.remove('hidden');  // Show text
+        } else {
+            missionText.classList.add('hidden');  // Hide text
+        }
+    }
+</script>
+</body>
+</html>
+
+git clone https://github.com/hlaustink/project.git
