@@ -121,6 +121,36 @@
 .hidden {
     display: none;
 }
+
+/* Media Queries for Smaller Screens (Tablets) */
+@media (max-width: 768px) {
+    header, nav, footer {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .box {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+}
+
+/* Media Queries for Extra Small Screens (Mobile) */
+@media (max-width: 480px) {
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .box {
+        min-width: 100%;
+        padding: 1rem;
+    }
+}
     </style>
 </head>
 <body>
